@@ -1,4 +1,4 @@
-<asset_composite xmlns="http://namespaces.softwareag.com/acdl/1.0" targetNamespace="http://namespaces.softwareag.com/webMethods/IS" name="CT_UMtestPackage" runtimeVersion="10.3.0.0.0">
+<asset_composite xmlns="http://namespaces.softwareag.com/acdl/1.0" targetNamespace="http://namespaces.softwareag.com/webMethods/IS" name="CT_UMtestPackage" runtimeVersion="10.3.0.0">
   <implementation.generic type="ispackage" />
   <buildInfo name="build.version" value="10.3.20" />
   <buildInfo name="BuildVersion" value="10.3.20" />
