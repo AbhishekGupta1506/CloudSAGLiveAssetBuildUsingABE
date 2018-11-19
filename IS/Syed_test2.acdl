@@ -1,0 +1,72 @@
+<asset_composite xmlns="http://namespaces.softwareag.com/acdl/1.0" targetNamespace="http://namespaces.softwareag.com/webMethods/IS" name="Syed_test2" runtimeVersion="10.3.0.0">
+  <implementation.generic type="ispackage" />
+  <buildInfo name="build.version" value="10.3.20" />
+  <buildInfo name="BuildVersion" value="10.3.20" />
+  <buildInfo name="BuildTimestamp" value="2018-11-19T13:45:43" />
+  <buildInfo name="MinimumTargetRuntimeVersion" value="10.3.0.0" />
+  <property name="activatePkgOnInstall" displayName="Activate Package On Install">
+    <value>true</value>
+  </property>
+  <property name="archivePkgOnInstall" displayName="Archive Package On Install">
+    <value>true</value>
+  </property>
+  <property name="compilePackage" displayName="Compile Package On Install">
+    <value>true</value>
+  </property>
+  <property name="fragPackage" displayName="Fragment Package On Install">
+    <value>true</value>
+  </property>
+  <property name="clearACLs" displayName="Delete ACLs for the assets from the target Integration Server">
+    <value>false</value>
+  </property>
+  <property name="disallowActivePackageInstall" displayName="disallowActivePackageInstall">
+    <value>false</value>
+  </property>
+  <property name="packageExecutionCheck" displayName="packageExecutionCheck">
+    <value>0</value>
+  </property>
+  <property name="suspendTriggersDuringDeploy" displayName="Suspend Triggers During Deployment">
+    <value>false</value>
+  </property>
+  <property name="syncDocTypesToBroker" displayName="Synchronize Document Types To Broker During Deployment">
+    <value>true</value>
+  </property>
+  <asset name="ISPackage.Syed_test2" displayName="Syed_test2">
+    <implementation.generic type="ispackage" />
+  </asset>
+  <asset name="service.publishing_service" displayName="service:publishing_service">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:doc.doc1</dependsOn>
+  </asset>
+  <asset name="service.service2" displayName="service:service2">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:doc.doc2</dependsOn>
+  </asset>
+  <asset name="service.service1" displayName="service:service1">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:doc.doc1</dependsOn>
+  </asset>
+  <asset name="doc.doc1" displayName="doc:doc1">
+    <implementation.generic type="isdocumenttype" />
+  </asset>
+  <asset name="doc.testDoc" displayName="doc:testDoc">
+    <implementation.generic type="isdocumenttype" />
+  </asset>
+  <asset name="doc.doc2" displayName="doc:doc2">
+    <implementation.generic type="isdocumenttype" />
+  </asset>
+  <asset name="triggers.trigger2" displayName="triggers:trigger2">
+    <implementation.generic type="istrigger" />
+    <dependsOn>IS:service.service2</dependsOn>
+    <dependsOn>IS:doc.doc2</dependsOn>
+  </asset>
+  <asset name="triggers.trigger1" displayName="triggers:trigger1">
+    <implementation.generic type="istrigger" />
+    <dependsOn>IS:service.service1</dependsOn>
+    <dependsOn>IS:doc.doc1</dependsOn>
+  </asset>
+  <asset name="Syed_test2.pub" displayName="pub">
+    <implementation.generic type="isfolder" />
+  </asset>
+</asset_composite>
+

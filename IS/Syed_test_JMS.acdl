@@ -1,0 +1,59 @@
+<asset_composite xmlns="http://namespaces.softwareag.com/acdl/1.0" targetNamespace="http://namespaces.softwareag.com/webMethods/IS" name="Syed_test_JMS" runtimeVersion="10.3.0.0">
+  <implementation.generic type="ispackage" />
+  <buildInfo name="build.version" value="10.3.20" />
+  <buildInfo name="BuildVersion" value="10.3.20" />
+  <buildInfo name="BuildTimestamp" value="2018-11-19T13:45:43" />
+  <buildInfo name="MinimumTargetRuntimeVersion" value="10.3.0.0" />
+  <property name="activatePkgOnInstall" displayName="Activate Package On Install">
+    <value>true</value>
+  </property>
+  <property name="archivePkgOnInstall" displayName="Archive Package On Install">
+    <value>true</value>
+  </property>
+  <property name="compilePackage" displayName="Compile Package On Install">
+    <value>true</value>
+  </property>
+  <property name="fragPackage" displayName="Fragment Package On Install">
+    <value>true</value>
+  </property>
+  <property name="clearACLs" displayName="Delete ACLs for the assets from the target Integration Server">
+    <value>false</value>
+  </property>
+  <property name="disallowActivePackageInstall" displayName="disallowActivePackageInstall">
+    <value>false</value>
+  </property>
+  <property name="packageExecutionCheck" displayName="packageExecutionCheck">
+    <value>0</value>
+  </property>
+  <property name="suspendTriggersDuringDeploy" displayName="Suspend Triggers During Deployment">
+    <value>false</value>
+  </property>
+  <property name="syncDocTypesToBroker" displayName="Synchronize Document Types To Broker During Deployment">
+    <value>true</value>
+  </property>
+  <asset name="ISPackage.Syed_test_JMS" displayName="Syed_test_JMS">
+    <implementation.generic type="ispackage" />
+  </asset>
+  <asset name="service.service_to_run_doc_jms" displayName="service:service_to_run_doc_jms">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:doc.doc_jms</dependsOn>
+  </asset>
+  <asset name="service.service_jms" displayName="service:service_jms">
+    <implementation.generic type="isflowservice" />
+  </asset>
+  <asset name="service.test_jms" displayName="service:test_jms">
+    <implementation.generic type="isflowservice" />
+  </asset>
+  <asset name="trigger.trigger_to_topic_test_jms" displayName="trigger:trigger_to_topic_test_jms">
+    <implementation.generic type="isjmstrigger" />
+    <dependsOn>IS:service.test_jms</dependsOn>
+    <dependsOn>IS:JMSAlias.JMS_TEST_AUTH</dependsOn>
+  </asset>
+  <asset name="doc.doc_jms" displayName="doc:doc_jms">
+    <implementation.generic type="isdocumenttype" />
+  </asset>
+  <asset name="Syed_test_JMS.pub" displayName="pub">
+    <implementation.generic type="isfolder" />
+  </asset>
+</asset_composite>
+

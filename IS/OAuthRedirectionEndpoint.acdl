@@ -1,0 +1,74 @@
+<asset_composite xmlns="http://namespaces.softwareag.com/acdl/1.0" targetNamespace="http://namespaces.softwareag.com/webMethods/IS" name="OAuthRedirectionEndpoint" runtimeVersion="10.3.0.0">
+  <implementation.generic type="ispackage" />
+  <buildInfo name="build.version" value="10.3.20" />
+  <buildInfo name="BuildVersion" value="10.3.20" />
+  <buildInfo name="BuildTimestamp" value="2018-11-19T13:45:42" />
+  <buildInfo name="MinimumTargetRuntimeVersion" value="10.3.0.0" />
+  <property name="activatePkgOnInstall" displayName="Activate Package On Install">
+    <value>true</value>
+  </property>
+  <property name="archivePkgOnInstall" displayName="Archive Package On Install">
+    <value>true</value>
+  </property>
+  <property name="compilePackage" displayName="Compile Package On Install">
+    <value>true</value>
+  </property>
+  <property name="fragPackage" displayName="Fragment Package On Install">
+    <value>true</value>
+  </property>
+  <property name="clearACLs" displayName="Delete ACLs for the assets from the target Integration Server">
+    <value>false</value>
+  </property>
+  <property name="disallowActivePackageInstall" displayName="disallowActivePackageInstall">
+    <value>false</value>
+  </property>
+  <property name="packageExecutionCheck" displayName="packageExecutionCheck">
+    <value>0</value>
+  </property>
+  <property name="suspendTriggersDuringDeploy" displayName="Suspend Triggers During Deployment">
+    <value>false</value>
+  </property>
+  <property name="syncDocTypesToBroker" displayName="Synchronize Document Types To Broker During Deployment">
+    <value>true</value>
+  </property>
+  <asset name="ISPackage.OAuthRedirectionEndpoint" displayName="OAuthRedirectionEndpoint">
+    <implementation.generic type="ispackage" />
+  </asset>
+  <asset name="oauth.client.getClientInfo" displayName="oauth.client:getClientInfo">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:oauth.client.clientInfo</dependsOn>
+  </asset>
+  <asset name="oauth.client.clientInfo" displayName="oauth.client:clientInfo">
+    <implementation.generic type="isdocumenttype" />
+  </asset>
+  <asset name="oauth.client.saveClientInfo" displayName="oauth.client:saveClientInfo">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:oauth.client.clientInfo</dependsOn>
+  </asset>
+  <asset name="oauth.helpers.buildRequestData" displayName="oauth.helpers:buildRequestData">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:oauth.client.clientInfo</dependsOn>
+  </asset>
+  <asset name="oauth.helpers.buildAuthHeader" displayName="oauth.helpers:buildAuthHeader">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:oauth.client.clientInfo</dependsOn>
+    <dependsOn>IS:oauth.helpers.clientAuthHdr</dependsOn>
+  </asset>
+  <asset name="oauth.helpers.clientAuthHdr" displayName="oauth.helpers:clientAuthHdr">
+    <implementation.generic type="isdocumenttype" />
+  </asset>
+  <asset name="oauth.tokenForAuthCode" displayName="oauth:tokenForAuthCode">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:oauth.tokenData</dependsOn>
+    <dependsOn>IS:oauth.client.getClientInfo</dependsOn>
+    <dependsOn>IS:oauth.helpers.buildRequestData</dependsOn>
+    <dependsOn>IS:oauth.helpers.buildAuthHeader</dependsOn>
+  </asset>
+  <asset name="oauth.tokenData" displayName="oauth:tokenData">
+    <implementation.generic type="isdocumenttype" />
+  </asset>
+  <asset name="OAuthRedirectionEndpoint.pub" displayName="pub">
+    <implementation.generic type="isfolder" />
+  </asset>
+</asset_composite>
+
